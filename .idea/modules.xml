@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/typ_cl.iml" filepath="$PROJECT_DIR$/.idea/modules/typ_cl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/typ_cl-build.iml" filepath="$PROJECT_DIR$/.idea/modules/typ_cl-build.iml" />
+    </modules>
+  </component>
+</project>
