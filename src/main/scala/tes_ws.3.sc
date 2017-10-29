@@ -15,7 +15,7 @@ sealed trait List[+A]
       case Cons (x, _) => Some(x)
     }
 
-
+// New text added
 
   def dropWhile2[A] ( f:A=>Boolean):List[A] =
   {
@@ -25,8 +25,6 @@ sealed trait List[+A]
 
     }
   }
-
-
 }
 
 
