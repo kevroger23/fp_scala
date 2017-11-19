@@ -70,6 +70,16 @@ object List {
   }
 
 
+  def init[A] (xs:List[A]):List[A] = {
+    xs match
+      {
+      case Nil => Nil
+      case Cons( h, Nil) => Nil
+      case Cons(h, t) =>   Cons ( h, init (t))
+
+    }
+
+  }
   def dropWhile[A] (xs:List[A], f:A=>Boolean):List[A] =
   {
     xs match {
@@ -97,4 +107,33 @@ val noevens = List.dropWhile( l1, (x:Int)=> x % 2 == 0)
 val noevens2 = l1.dropWhile2((x:Int)=> { x % 2 == 0})
 
 
+val all_but_last = List.init(l1)
 
+def foldRight[A,B] ( xs:List[A], z:B, f:(A,B)=>B):B =
+{
+  xs match
+    {
+    case Nil => z
+    case Cons(h:A,t:List[A] ) =>  f( h, foldRight (  t, z, f))
+  }
+
+}
+
+def foldRight2[A,B] ( xs:List[A], z:B)( f:(A,B)=>B):B =
+{
+  xs match
+  {
+    case Nil => z
+    case Cons(h:A,t:List[A] ) =>  foldRight2( t, f( h, z)) (f)
+  }
+
+}
+
+
+val lint = List[Int] (2,3,4,1)
+
+
+val  s1 = foldRight[Int,Int](lint, 0,  _ + _)
+
+
+val  prod = foldRight[Int,Int] ( lint, 1,  (x:Int, y:Int)=> x * y)
